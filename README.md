@@ -27,6 +27,6 @@ To decipher a message, the exact same procedure is followed. Find 'Z' in the top
 
 **Compile and run**
 ```
-$ reset && g++ cipher/atbash/main.cpp cipher/atbash/atbash.cpp -o output/atbash && ./bin/atbash
+$ reset && g++ cipher/atbash/main.cpp cipher/atbash/atbash.cpp -o bin/atbash && ./bin/atbash
 ```
 # Cryptanalysis
