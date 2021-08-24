@@ -10,7 +10,7 @@ Atbash::Atbash() { }
 /*
 *
 */
-Atbash::Atbash(int key) /*: m_atbashEncryption(key)*/
+Atbash::Atbash(std::string key) /*: m_atbashEncryption(key)*/
 {
 }
 
@@ -28,7 +28,7 @@ Atbash::Atbash(const std::string *message) /*: m_atbashEncryption(message)*/
 /*
 *
 */
-Atbash::Atbash(const std::string *message, int key) /*: m_atbashEncryption(message, key)*/
+Atbash::Atbash(const std::string *message, std::string key) /*: m_atbashEncryption(message, key)*/
 {
     // AtbashEncryption atbashEncryption(message, m_key);
     // m_atbashEncryption = &atbashEncryption;
@@ -39,40 +39,23 @@ Atbash::Atbash(const std::string *message, int key) /*: m_atbashEncryption(messa
 /*------------------------ Encryption related functions ----------------------*/
 
 /*
-*
-*/
-bool Atbash::validateInput()
-{
-    bool retVal = false;
-    if (m_inputMessage != "") {
-        retVal = true;
-    }
-    return retVal;
-}
-
-/*
 * receives an input for encryption
 */
 void Atbash::encrypt(const std::string *message)
 {
     for (int i = 0; i < message->length(); i++) {
         for (int j = 0; j < alphabetLenght; j++) {
-            if ( message->at(i) == this->alphabet[j]) {
-                if (j < (alphabetLenght - this->m_key)) {
-                    this->m_encryptedMessage += alphabet[j + this->m_key];
-                } else {
-                    this->m_encryptedMessage += alphabet[0 + this->m_key];// <-- WRONG
-                }
+            if ( message->at(i) == this->alphabet.at(j)) {
+                this->m_encryptedMessage += this->m_key.at(j);
             }
         }
     }
-    // this->m_encryptedMessage = "hahaha";
 }
 
 /*
 * receives an input for encryption
 */
-void Atbash::encrypt(const std::string *message, int key)
+void Atbash::encrypt(const std::string *message, std::string key)
 {
     setKey(key);
     encrypt(message);
@@ -109,7 +92,7 @@ const std::string Atbash::getDecryptedMessage()
 /*
 *
 */
-void Atbash::setKey(int key)
+void Atbash::setKey(std::string key)
 {
     // std::cout << "atbash::setKey()::key: " << key << std::endl;
     this->m_key = key;
@@ -118,7 +101,34 @@ void Atbash::setKey(int key)
 /*
 *
 */
-int Atbash::getKey()
+std::string Atbash::getKey()
 {
     return this->m_key;
+}
+
+/*
+*
+*/
+bool Atbash::validateInputMessage(std::string message)
+{
+    bool retVal = true;
+    if (message == "") {
+        retVal = false;
+    }
+    /* add more conditions */
+    return retVal;
+}
+
+/*
+*
+*/
+bool Atbash::validateKey(std::string key)
+{
+    bool retVal = true;
+    if(key.length() == alphabetLenght)
+    {
+        retVal = false;
+    }
+    /* add more conditions */
+    return retVal;
 }
