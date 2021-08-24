@@ -30,10 +30,10 @@ Atbash::Atbash(const std::string *message) /*: m_atbashEncryption(message)*/
 */
 Atbash::Atbash(const std::string *message, std::string key) /*: m_atbashEncryption(message, key)*/
 {
-    // AtbashEncryption atbashEncryption(message, m_key);
+    // AtbashEncryption atbashEncryption(message, m_substitutionKey);
     // m_atbashEncryption = &atbashEncryption;
 
-    // m_atbashEncryption = new AtbashEncryption(message, m_key);
+    // m_atbashEncryption = new AtbashEncryption(message, m_substitutionKey);
 }
 
 /*------------------------ Encryption related functions ----------------------*/
@@ -46,7 +46,7 @@ void Atbash::encrypt(const std::string *message)
     for (int i = 0; i < message->length(); i++) {
         for (int j = 0; j < alphabetLenght; j++) {
             if ( message->at(i) == this->alphabet.at(j)) {
-                this->m_encryptedMessage += this->m_key.at(j);
+                this->m_encryptedMessage += this->m_substitutionKey.at(j);
             }
         }
     }
@@ -95,7 +95,7 @@ const std::string Atbash::getDecryptedMessage()
 void Atbash::setKey(std::string key)
 {
     // std::cout << "atbash::setKey()::key: " << key << std::endl;
-    this->m_key = key;
+    this->m_substitutionKey = key;
 }
 
 /*
@@ -103,7 +103,7 @@ void Atbash::setKey(std::string key)
 */
 std::string Atbash::getKey()
 {
-    return this->m_key;
+    return this->m_substitutionKey;
 }
 
 /*
@@ -122,7 +122,7 @@ bool Atbash::validateInputMessage(std::string message)
 /*
 *
 */
-bool Atbash::validateKey(std::string key)
+bool Atbash::validateSubstitutionKey(std::string key)
 {
     bool retVal = true;
     if(key.length() == alphabetLenght)

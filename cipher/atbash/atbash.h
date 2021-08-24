@@ -24,13 +24,9 @@ public:
 private:
     const std::string m_inputMessage;
     std::string m_encryptedMessage;
-    std::string m_key = atbash_Cfg_key;
-
-    // AtbashEncryption m_atbashEncryption;// = new AtbashEncryption();
+    std::string m_substitutionKey = atbash_Cfg_substitutionKey;
     bool validateInputMessage(std::string message);
-    bool validateKey(std::string key);
+    bool validateSubstitutionKey(std::string key);
     const std::string alphabet = " ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
     uint8_t alphabetLenght = alphabet.length();
-    // AtbashEncryption atbashEncryption();
-    // AtbashDecryption atbashDecryption();
 };
