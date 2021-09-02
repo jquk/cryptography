@@ -7,7 +7,9 @@
 *.o
 *.obj
 
+# Specific directories
 /bin/*
+/build/*
 
 # Precompiled Headers
 *.gch
