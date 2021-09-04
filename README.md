@@ -25,17 +25,27 @@ ZGGZXP ZG WZDM
 ```
 To decipher a message, the exact same procedure is followed. Find 'Z' in the top row, which is 'A' in the bottom row. Continue until the whole message is deciphered.
 
-**Compile and run: cmake**
+# Compile And Run
+## Compile and run with cmake
 Note that at the moment there is a single target.
 ```
 $ mkdir -p build && cd build
 $ cmake ..
 $ cmake --build .
 ```
+Alternativelly, from the root project directory, run this:
+```
+$ cmake -H. -Bbuild
+```
 
-**Compile and run: manual**
+## Compile and run manually
+**Compile and run the atbash encryption algorithm:** 
 ```
 $ reset && g++ cipher/atbash/main.cpp cipher/atbash/atbash.cpp -o bin/atbash && ./bin/atbash
+```
+**Compile and run the cryptanalysis tools:**
+```
+$ rm -rf cryptanalysis/bin/main && reset && g++ cryptanalysis/main.cpp cryptanalysis/message.cpp -o cryptanalysis/bin/main && ./cryptanalysis/bin/main
 ```
 
 # Cryptanalysis
