@@ -41,11 +41,11 @@ $ cmake -H. -Bbuild
 ## Compile and run manually
 **Compile and run the atbash encryption algorithm:** 
 ```
-$ reset && g++ cipher/atbash/main.cpp cipher/atbash/atbash.cpp -o bin/atbash && ./bin/atbash
+$ rm -rf bin/atbash reset && g++ cipher/atbash/main.cpp cipher/atbash/atbash.cpp -o bin/atbash && ./bin/atbash
 ```
 **Compile and run the cryptanalysis tools:**
 ```
-$ rm -rf cryptanalysis/bin/main && reset && g++ cryptanalysis/main.cpp cryptanalysis/message.cpp -o cryptanalysis/bin/main && ./cryptanalysis/bin/main
+$ rm -rf cryptanalysis/bin/cryptanalysis && reset && g++ cryptanalysis/main.cpp cryptanalysis/message.cpp -o cryptanalysis/bin/cryptanalysis && ./cryptanalysis/bin/cryptanalysis
 ```
 
 # Cryptanalysis
