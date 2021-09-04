@@ -8,8 +8,9 @@
 *.obj
 
 # Specific directories
-/bin/*
 /build/*
+/bin/*
+/cryptanalysis/bin/*
 
 # Precompiled Headers
 *.gch
