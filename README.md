@@ -3,6 +3,8 @@ Cryptography training
 
 # Ciphers
 
+[01 Atbash](cipher/atbash/README.md)
+
 ## 01 Atbash
 **Introduction**
 
@@ -39,7 +41,7 @@ $ cmake -H. -Bbuild
 ```
 
 ## Compile and run manually
-**Compile and run the atbash encryption algorithm:** 
+**Compile and run the atbash encryption algorithm:**
 ```
 $ rm -rf bin/atbash reset && g++ cipher/atbash/main.cpp cipher/atbash/atbash.cpp -o bin/atbash && ./bin/atbash
 ```
