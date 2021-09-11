@@ -10,10 +10,10 @@ int main()
 {
 
 #if (CIPHER_COMPILATION_TARGET==CAESAR)
-    const std::string message = "CAESAR";
+    const std::string message = "CAESAR CIPHER";
     std::cout << message << std::endl;
 #elif (CIPHER_COMPILATION_TARGET==ATBASH)
-    const std::string message = "ATBASH";
+    const std::string message = "ATBASH CIPHER";
     std::cout << "main: " << std::endl << " - Original message:" << std::endl << "  - Length: " << message.length() << std::endl << "  - Message: " << message << std::endl << "  - Message[0]: " << message[0] << std::endl;
 
     // Atbash *atbash = new Atbash();
