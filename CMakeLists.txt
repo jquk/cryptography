@@ -12,8 +12,8 @@ project(cryptography LANGUAGES CXX)
 # add_executable(application ${COMMON_SOURCES} ${TARGET_SOURCES})
 # add_executable(tests ${COMMON_SOURCES} ${TEST_SOURCES})
 
-set(CRYPTOGRAPHY_SOURCES cipher/atbash/main.cpp cipher/atbash/atbash.cpp)
-set(CRYPTANALYSIS_SOURCES cryptanalysis/main.cpp cryptanalysis/message.cpp)
+set(CRYPTOGRAPHY_SOURCES main.cpp cipher/atbash/atbash.cpp)
+set(CRYPTANALYSIS_SOURCES main.cpp cryptanalysis/message.cpp)
 
 add_executable(atbash ${CRYPTOGRAPHY_SOURCES})
 add_executable(cryptanalsys ${CRYPTANALYSIS_SOURCES})
