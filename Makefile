@@ -1,27 +1,42 @@
 MAKEFILE_DEFINED_MACROS = -D CAESAR=1 -D ATBASH=2
+CIPHER_COMPILATION_TARGET = ''
 
-target=''
+define compile
+$(eval target := $(strip $(1)))
+@echo executing the compile function, the target parameter is $(target)
+@echo $(MAKEFILE_DEFINED_MACROS)
+rm -rf build/$(target)
+g++ main.cpp cipher/$(target)/$(target).cpp -o build/$(target) $(MAKEFILE_DEFINED_MACROS)
+./build/$(target)
+endef
+
+all:
+	@echo executing the target all
 
 main:
-# DO all the work in here
-	echo $(MAKEFILE_DEFINED_MACROS) \
-	rm -rf bin/$(target) && \
-	g++ main.cpp cipher/$(target)/$(target).cpp -o bin/$(target) $(MAKEFILE_DEFINED_MACROS) && \
-	./bin/$(target)
+	@echo executing the target all
 
-caesar: MAKEFILE_DEFINED_MACROS+=-D CIPHER_COMPILATION_TARGET=CAESAR
-	target=caesar
+caesar:
+	@echo executing the target $@
+	rm -rf build/$(target)
+	$(eval MAKEFILE_DEFINED_MACROS+=-D CIPHER_COMPILATION_TARGET=CAESAR)
+	$(call compile,$@)
 
-atbash: MAKEFILE_DEFINED_MACROS+=-D CIPHER_COMPILATION_TARGET=ATBASH
-	target=atbash
+atbash:
+	@echo executing the target $@
+	rm -rf build/$(target)
+	$(eval MAKEFILE_DEFINED_MACROS+=-D CIPHER_COMPILATION_TARGET=ATBASH)
+	$(call compile,$@)
 
-caesar atbash: main
 
+# caesar atbash: main
+
+########################3
 show_compiler:
 ifeq ($(CC),gcc)
-	echo "gcc compiler"
+	@echo "gcc compiler"
 else
-	echo "other compiler"
+	@echo "other compiler"
 endif
 
 clean:
