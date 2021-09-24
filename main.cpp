@@ -1,6 +1,10 @@
 #include <string>
 #include <iostream>
+#if (CIPHER_COMPILATION_TARGET==CAESAR)
+#include "cipher/caesar/caesar.h"
+#elif (CIPHER_COMPILATION_TARGET==ATBASH)
 #include "cipher/atbash/atbash.h"
+#endif
 
 #if !defined(CIPHER_COMPILATION_TARGET)
 #error "CIPHER_COMPILATION_TARGET is not defined"
@@ -10,11 +14,24 @@ int main()
 {
 
 #if (CIPHER_COMPILATION_TARGET==CAESAR)
-    const std::string message = "CAESAR CIPHER";
-    std::cout << message << std::endl;
+// #pragma message "CAESAR CIPHER"
+   const std::string message = "XYZ";
+
+    std::cout << "main: " << std::endl;
+	std::cout << " * Original message:" << std::endl << "  - Length: " << message.length() << std::endl << "  - Content: " << message << std::endl << "  - Message[0]: " << message[0] << std::endl;
+
+    Caesar caesar;
+    caesar.encrypt(&message);
+
+    std::string encryptedMessage = caesar.getEncryptedMessage();
+    std::cout << " * Encrypted message: " << std::endl << "  - Length: " << encryptedMessage.length() << std::endl << "  - Content: " << encryptedMessage << std::endl << "  - Length: " << encryptedMessage.length() << std::endl << "  - Encryption Key: \"" << caesar.getKey() << "\"" << std::endl;
+
 #elif (CIPHER_COMPILATION_TARGET==ATBASH)
-    const std::string message = "ATBASH CIPHER";
-    std::cout << "main: " << std::endl << " - Original message:" << std::endl << "  - Length: " << message.length() << std::endl << "  - Message: " << message << std::endl << "  - Message[0]: " << message[0] << std::endl;
+// #pragma message "ATBASH CIPHER"
+    const std::string message = "ABC DEF";
+
+    std::cout << "main: " << std::endl;
+	std::cout << " * Original message:" << std::endl << "  - Length: " << message.length() << std::endl << "  - Content: " << message << std::endl << "  - Message[0]: " << message[0] << std::endl;
 
     // Atbash *atbash = new Atbash();
     Atbash atbash;
@@ -23,7 +40,7 @@ int main()
     atbash.encrypt(&message);
 
     std::string encryptedMessage = atbash.getEncryptedMessage();
-    std::cout << " - Encrypted message: " << std::endl << "  - Message: " << encryptedMessage << std::endl << "  - Length: " << encryptedMessage.length() << std::endl << "  - Encryption Key: \"" << atbash.getKey() << "\"" << std::endl;
+    std::cout << " * Encrypted message: " << std::endl << "  - Length: " << encryptedMessage.length() << std::endl << "  - Content: " << encryptedMessage << std::endl << "  - Length: " << encryptedMessage.length() << std::endl << "  - Encryption Key: \"" << atbash.getKey() << "\"" << std::endl;
 #else
     std::cout << "NO COMPILATION TARGET SPECIFIED" << std::endl;
 #endif
