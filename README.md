@@ -39,3 +39,26 @@ See the subdirectory named 'cryptoanalysis', for analysis tools, e.g. char frequ
 
 # Makefile reference
 [ReadMakefileInstructions.md](ReadMakefileInstructions.md)
+
+
+# PYTHON FILES
+## Cryptology tutorial
+This mini project has the purpose of teaching some cryptology techniques.
+
+## Source
+Khan Academy: https://www.khanacademy.org/computing/computer-science/cryptography/crypt/v/caesar-cipher
+
+## Tutorial main parts
+1. [x] Caesar cipher
+2. [] Caesar cipher exploration
+3. [] Frequency fingerprint exploration
+4. [x] Polyalphabetic cipher
+5. [] Polyalphabetic exploration
+6. [] The one-time pad
+7. [] Perfect secrecy exploration
+8. [] Frequency stability property
+9. [] How uniform are you?
+10. [] The Enigma encryption machine
+11. [] Perfect secrecy
+12. [x] Pseudorandom number generators
+13. [] Random walk exploration
