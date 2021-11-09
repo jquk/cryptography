@@ -4,6 +4,7 @@ This project's goal is to practice cryptography techniques, starting from the ol
 # Ciphers
 0. [Caesar](cipher/caesar/README.md)
 1. [Atbash](cipher/atbash/README.md)
+2. Others to come.
 
 # Compile And Run
 ## Compile and run with cmake
@@ -34,6 +35,7 @@ $ rm -rf cryptanalysis/bin/cryptanalysis && reset && g++ cryptanalysis/main.cpp 
 ```
 
 # Cryptanalysis
+See the subdirectory named 'cryptoanalysis', for analysis tools, e.g. char frequency for profiling encrypted messages.
 
 # Makefile reference
 [ReadMakefileInstructions.md](ReadMakefileInstructions.md)
