@@ -12,6 +12,7 @@ Caesar::Caesar() { }
 */
 Caesar::Caesar(const int key) /*: m_caesarEncryption(key)*/
 {
+    setKey(key);
 }
 
 /*
