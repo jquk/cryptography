@@ -6,7 +6,7 @@ This project's goal is to practice cryptography techniques, starting from the ol
 1. [Atbash](cipher/atbash/README.md)
 2. Others to come.
 
-# Compile And Run
+# Compile C++ And Run
 ## Compile and run with cmake
 Note that at the moment there is a single target.
 ```
@@ -43,7 +43,7 @@ See the subdirectory named 'cryptoanalysis', for analysis tools, e.g. char frequ
 
 # PYTHON FILES
 ## Cryptology tutorial
-This mini project has the purpose of teaching some cryptology techniques.
+This part of the project has the purpose of teaching some cryptology techniques using Python.
 
 ## Source
 Khan Academy: https://www.khanacademy.org/computing/computer-science/cryptography/crypt/v/caesar-cipher
